@@ -1,0 +1,37 @@
+{
+  "name": "shebang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "tailwind": "npx tailwindcss -i ./views/css/main.css -o ./public/assets/stylesheets/main.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevJonTaylor/shebang.git"
+  },
+  "keywords": [],
+  "author": "Jon Taylor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevJonTaylor/shebang/issues"
+  },
+  "homepage": "https://github.com/DevJonTaylor/shebang#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bulma": "^0.9.3",
+    "connect-session-sequelize": "^7.1.3",
+    "dotenv": "^16.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.5",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
