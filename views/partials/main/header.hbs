@@ -1,7 +1,7 @@
 <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="/">
                 <h1 class="is-size-1">#!Shebang</h1>
             </a>
 
@@ -9,12 +9,17 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a class="button is-light">
-                        Log in
-                    </a>
+                    {{> components/basic/icon-button
+                        id="sign-up"
+                        class="is-danger is-outlined"
+                        icon="arrow-right-from-bracket"
+                        text="Sign Up"
+                    }}
+                        {{> components/basic/icon name=""}} <span>Sign Up</span>
+                    {{/components/basic/button}}
+                    {{#> components/basic/button id="log-in" class="is-outlined is-primary" text="Log In"}}
+                        {{> components/basic/icon name="arrow-right-to-bracket"}} Log In
+                    {{/components/basic/button}}
                 </div>
             </div>
         </div>

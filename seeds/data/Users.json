@@ -1,0 +1,71 @@
+[{
+  "firstName": "Erena",
+  "lastName": "Massel",
+  "username": "emassel0",
+  "password": "qwer",
+  "email": "emassel0@latimes.com",
+  "role": "Author"
+}, {
+  "firstName": "Carroll",
+  "lastName": "Vesque",
+  "username": "cvesque1",
+  "password": "qwer",
+  "email": "cvesque1@fastcompany.com",
+  "role": "Author"
+}, {
+  "firstName": "Tabina",
+  "lastName": "Belderfield",
+  "username": "tbelderfield2",
+  "password": "qwer",
+  "email": "tbelderfield2@1und1.de",
+  "role": "Admin"
+}, {
+  "firstName": "Everett",
+  "lastName": "Polkinhorn",
+  "username": "epolkinhorn3",
+  "password": "qwer",
+  "email": "epolkinhorn3@alibaba.com",
+  "role": "Author"
+}, {
+  "firstName": "Shana",
+  "lastName": "Farrier",
+  "username": "sfarrier4",
+  "password": "qwer",
+  "email": "sfarrier4@multiply.com",
+  "role": "Admin"
+}, {
+  "firstName": "Andie",
+  "lastName": "Peggram",
+  "username": "apeggram5",
+  "password": "qwer",
+  "email": "apeggram5@topsy.com",
+  "role": "Author"
+}, {
+  "firstName": "Leona",
+  "lastName": "Skaife d'Ingerthorpe",
+  "username": "lskaifedingerthorpe6",
+  "password": "qwer",
+  "email": "lskaifedingerthorpe6@stanford.edu",
+  "role": "Author"
+}, {
+  "firstName": "Eleni",
+  "lastName": "Merrywether",
+  "username": "emerrywether7",
+  "password": "qwer",
+  "email": "emerrywether7@friendfeed.com",
+  "role": "Admin"
+}, {
+  "firstName": "Lavena",
+  "lastName": "Handaside",
+  "username": "lhandaside8",
+  "password": "qwer",
+  "email": "lhandaside8@amazonaws.com",
+  "role": "Author"
+}, {
+  "firstName": "Kennith",
+  "lastName": "Van Bruggen",
+  "username": "kvanbruggen9",
+  "password": "qwer",
+  "email": "kvanbruggen9@redcross.org",
+  "role": "Author"
+}]

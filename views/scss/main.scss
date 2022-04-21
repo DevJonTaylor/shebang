@@ -1,0 +1,12 @@
+$body-background-color: #303030;
+$text: #dbdbdb;
+$primary: #85DCB0;
+$link: #E27D60;
+$info: #E8A87C;
+$success: #C38D9E;
+$danger: #41B3A3;
+
+@import "node_modules/bulma/bulma";
+$warning: $yellow;
+$dark: $grey-darker;
+$text: $danger;

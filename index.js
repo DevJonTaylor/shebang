@@ -1,2 +1,4 @@
 require = require("esm")(module)
-module.exports = require("./server.js")
+const [ request ] = process.argv.filter((value, i) => i !== 1 && i !== 0)
+
+module.exports = require(`./${request}`)
