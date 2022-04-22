@@ -2,7 +2,15 @@
  * /api/users/*
  */
 import { Router } from 'express'
-import { getAllUsers, createNewUser, userLogin, userLogOut, getUserById, updateUser, deleteUser } from './routes'
+import {
+  getAllUsers,
+  createNewUser,
+  userLogin,
+  userLogOut,
+  getUserById,
+  updateUser,
+  deleteUser
+} from './routes'
 
 const router = new Router()
 
