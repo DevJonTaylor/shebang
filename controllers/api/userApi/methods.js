@@ -27,3 +27,7 @@ export function searchUsers(query) {
     attributes: ATTRIBUTES
   })
 }
+
+export function authenticate(username, password) {
+  return User.authenticate(username, password)
+}

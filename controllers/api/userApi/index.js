@@ -2,8 +2,8 @@
  * /api/users/*
  */
 import { Router } from 'express'
-import { searchUsers, userById } from './methods'
-import { User } from '../../../models'
+import { searchUsers, userById, authenticate } from './methods'
+
 const router = new Router()
 
 
@@ -22,31 +22,54 @@ router.route('')
     }
 
   })
-//   .post()
+// TODO: Create method   .post()
 
 router.post('/login', async ({ session, body:{ username, password } }, { ok, badRequest, serverError }) => {
   try {
     if(session.loggedIn) {
       const user = await userById(session.userId)
-      ok(user)
+      return ok(user)
     }
+
     if(!username || !password) return badRequest();
-    User.authenticate(username, password)
-      .then(user => {
-        if(!user)
-          return badRequest('Invalid Credentials.')
 
+    const user = await authenticate(username, password)
+    if(!user) return badRequest('Invalid Credentials.')
 
-        return ok(user)
-      }).catch(err => {
-      console.error(err)
-      serverError(err)
-    })
+    session.loggedIn = true
+    session.userId = user.id
+    
+    return ok(user)
   } catch(err) {
+    
     console.error(err)
     serverError(err)
   }
 
+})
+
+/**
+ * This post logs the user out.
+ * @typedef {{
+ *   ok: (data?: unknown) => void,
+ *   badRequest: (reason?: string) => void,
+ *   serverError: () => void
+ * }} MiddlewareMethods for consistency.
+ * @param {Session} session
+ * @param {MiddlewareMethods} { ok, badRequest, serverError }
+ */
+router.post('/logout', async ({ session }, { ok, badRequest, serverError }) => {
+  try {
+    if(!session.loggedIn) return badRequest()
+
+    delete session.loggedIn
+    delete session.userId
+
+    return ok()
+  } catch(err) {
+    logError(err)
+
+  }
 })
 // router.route(':id')
 //   .get()
