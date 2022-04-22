@@ -13,7 +13,6 @@ function navbarSetup() {
   }
   const observer = new MutationObserver((list, observer) => {
     list.forEach(mutation => {
-      console.log(mutation.type)
       if(mutation.attributeName === 'class') {
         const isActive = mutation.target.classList.contains('is-active')
         const menu = document.querySelector('.navbar-menu').classList

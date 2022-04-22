@@ -1,14 +1,19 @@
 <header>
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-        {{> button/hamburger }}
+        <div class="navbar-brand is-hidden-desktop">
+            <a class="navbar-item" href="/">
+                <h1 class="is-size-1 has-text-danger">#!Shebang</h1>
+            </a>
+            {{> button/hamburger }}
+        </div>
         <div class="navbar-menu has-background-primary">
-            <div class="navbar-brand">
+            <div class="navbar-brand is-hidden-touch">
                 <a class="navbar-item" href="/">
                     <h1 class="is-size-1 has-text-danger">#!Shebang</h1>
                 </a>
             </div>
             <div class="navbar-end">
-                <div class="navbar-item is-mobile">
+                <div class="navbar-item is-hidden-desktop">
                     {{#> button/group class="is-justify-content-space-evenly"}}
                         {{#> button/link href="/" class="has-text-primary is-link is-rounded"}}
                             {{> basic/left-icon name="home"}}
@@ -18,6 +23,19 @@
                         {{/button/link}}
                         {{#> button/link class="has-text-primary is-link is-rounded"}}
                             {{> basic/left-icon name="user-plus"}}
+                        {{/button/link}}
+                    {{/button/group}}
+                </div>
+                <div class="navbar-item is-hidden-touch">
+                    {{#> button/group class="is-justify-content-space-evenly"}}
+                        {{#> button/link href="/" class="has-text-primary is-link is-rounded"}}
+                            {{> basic/left-icon name="home" text="Home"}}
+                        {{/button/link}}
+                        {{#> button/link class="has-text-primary is-link is-rounded"}}
+                            {{> basic/left-icon name="arrow-right-to-bracket" text="Log In"}}
+                        {{/button/link}}
+                        {{#> button/link class="has-text-primary is-link is-rounded"}}
+                            {{> basic/left-icon name="user-plus" text="Sign Up"}}
                         {{/button/link}}
                     {{/button/group}}
                 </div>
