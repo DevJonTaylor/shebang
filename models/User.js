@@ -1,4 +1,4 @@
-import { sequelize, Model, INTEGER, STRING, ENUM } from '../lib/config'
+import { sequelize, Model, INTEGER, STRING, ENUM, VIRTUAL } from '../lib/config'
 import { genSalt, hash, compare } from 'bcrypt'
 
 /**
@@ -57,18 +57,18 @@ class User extends Model {
   /**
    * Authenticates a user based on comparing their password provided with the username.
    * @param { string } username
-   * @param { string } password
+   * @param { string } passwordToCheck
    * @returns { Promise<boolean|User> }
    */
-  static async authenticate(username, password) {
+  static async authenticate(username, passwordToCheck) {
     try {
-      const user = await this.findOne({ where: { username }, attributes: [ 'id', 'password' ] })
-      const isMatched = this.compare(password, user.password)
+      const { id, password } = await this.findOne({ where: { username }, attributes: [ 'id', 'password' ] })
+      const isMatched = await this.compare(passwordToCheck, password)
 
       if(!isMatched) return false
       return await this.findOne({
         where: { id },
-        attributes: [ 'id', 'firstName', 'lastName', 'username', 'role' ]
+        attributes: [ 'id', 'fullName', 'firstName', 'lastName', 'username', 'role' ]
       })
     } catch(err) {
       return Promise.reject(err)
@@ -130,6 +130,12 @@ User.init({
   role: {
     type: ENUM('Author', 'Admin'),
     allowNull: false
+  },
+  fullName: {
+    type: VIRTUAL,
+    get() {
+      return `${this.getDataValue('firstName')} ${this.getDataValue('lastName')}`
+    }
   }
 }, {
   sequelize,
