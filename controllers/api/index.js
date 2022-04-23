@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import usersRoutes from './userApi'
+import postsRoutes from './postApi'
 
 const router = new Router()
 
@@ -35,6 +36,4 @@ router.use((req, res, next) => {
   next();
 })
 
-router.use('/users', usersRoutes)
-
-export default router
+export default router.use('/users', usersRoutes).use('/posts', postsRoutes)

@@ -3,17 +3,17 @@ import Post from './Post'
 import Comment from './Comment'
 import Like from './Like'
 
+const onEvents = { onDelete: 'CASCADE', onUpdate: null }
 
+User.hasMany(Post, { foreignKey: 'UserId', targetKey: 'id', ...onEvents })
+User.hasMany(Comment, { foreignKey: 'UserId', targetKey: 'id', ...onEvents })
+User.hasMany(Like,  { foreignKey: 'UserId', targetKey: 'id', ...onEvents })
 
-User.hasMany(Post, { foreignKey: 'UserId', targetKey: 'id', sourceKey: 'id', onDelete: 'CASCADE', onUpdate: null })
-User.hasMany(Comment, { foreignKey: 'UserId', targetKey: 'id', sourceKey: 'id', onDelete: 'CASCADE', onUpdate: null })
-User.hasMany(Like,  { foreignKey: 'UserId', targetKey: 'id', sourceKey: 'id', onDelete: 'CASCADE', onUpdate: null })
+Post.author = Post.belongsTo(User, { as: 'author', foreignKey: 'UserId', targetKey: 'id' })
+Post.hasMany(Comment, { foreignKey: 'PostId', targetKey: 'id', ...onEvents })
+Post.hasMany(Like,  { foreignKey: 'PostId', targetKey: 'id', ...onEvents })
 
-Post.belongsTo(User, { foreignKey: 'UserId', targetKey: 'id', sourceKey: 'id' })
-Post.hasMany(Comment, { foreignKey: 'PostId', targetKey: 'id', sourceKey: 'id', onDelete: 'CASCADE', onUpdate: null })
-Post.hasMany(Like,  { foreignKey: 'PostId', targetKey: 'id', sourceKey: 'id', onDelete: 'CASCADE', onUpdate: null })
-
-Comment.belongsTo(User, { foreignKey: 'UserId', targetKey: 'id', sourceKey: 'id' })
-Comment.belongsTo(Post, { foreignKey: 'PostId', targetKey: 'id', sourceKey: 'id' })
+Comment.responder = Comment.belongsTo(User, { as: 'responder', foreignKey: 'UserId', targetKey: 'id' })
+Comment.belongsTo(Post, { foreignKey: 'PostId', targetKey: 'id' })
 
 export { User, Post, Comment, Like }

@@ -30,7 +30,6 @@ Post.init({
   },
   views: {
     type: INTEGER,
-    allowNull: false,
     validate: true,
     defaultValue: 0
   },
